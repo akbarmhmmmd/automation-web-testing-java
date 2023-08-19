@@ -14,3 +14,22 @@ Feature: User simulating example in Heroku Web
     And User click Add Element Button
     And User click Delete Element Button
     Then User success Delete Element
+  
+	Scenario: User can click Checkboxes
+		When User click Checkboxes Button
+    And User click First Checkbox Button
+    And User click Second Checkbox Button
+    Then User success click Checkboxes
+ 
+	Scenario: User can select Dropdown
+    When User click Dropdown Button
+    And User click Option Button
+    And User select First Option
+    And User select Second Option
+    Then User success select Dropdown
+  
+  Scenario: User can Remove A Checkbox in Dynamic Controls
+    When User click Dynamic Controls Button
+    And User click A Checkbox Button
+    And User click Remove Checkbox Button
+    Then User success Remove A Checkbox
