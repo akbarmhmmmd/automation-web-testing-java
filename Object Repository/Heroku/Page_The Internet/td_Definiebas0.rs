@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>td_Definiebas0</name>
+   <tag></tag>
+   <elementGuidId>490e3c9c-ed8d-4c98-ace3-2603a2a4b80b</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>td:nth-of-type(4)</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='content']/div/div/div/div[2]/table/tbody/tr/td[4]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>td</value>
+      <webElementGuid>0cc1c5f7-fdd4-4891-bc2b-82fe4df97b30</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Definiebas0</value>
+      <webElementGuid>3976f624-e61b-4794-bcbf-300780883119</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;content&quot;)/div[@class=&quot;example&quot;]/div[@class=&quot;row&quot;]/div[@class=&quot;large-12 columns large-centered&quot;]/div[@class=&quot;large-10 columns&quot;]/table[1]/tbody[1]/tr[1]/td[4]</value>
+      <webElementGuid>718a6c09-601b-480d-b9c4-ea0d5835ce0f</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='content']/div/div/div/div[2]/table/tbody/tr/td[4]</value>
+      <webElementGuid>91c2ad45-66bc-4641-b36b-cef2fee5e7a1</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Adipisci0'])[1]/following::td[1]</value>
+      <webElementGuid>553f4b3f-6b61-4985-a6d8-2a8594c614a6</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Apeirian0'])[1]/following::td[2]</value>
+      <webElementGuid>14ec6982-a183-4df3-b7ea-c1a6f2ba6b40</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Consequuntur0'])[1]/preceding::td[1]</value>
+      <webElementGuid>c5fee504-c605-49c5-bcb3-c899b1838933</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Phaedrum0'])[1]/preceding::td[2]</value>
+      <webElementGuid>cae810ae-c785-4d11-8f0c-f6d0dfa98d8c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Definiebas0']/parent::*</value>
+      <webElementGuid>03d1f7ea-39f7-41a6-a59b-838b03fab39a</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//td[4]</value>
+      <webElementGuid>1ad6983b-06e9-4343-bc57-4343ba9088b4</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//td[(text() = 'Definiebas0' or . = 'Definiebas0')]</value>
+      <webElementGuid>ba234f10-6cf3-441c-aa20-e8fdee253643</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>
