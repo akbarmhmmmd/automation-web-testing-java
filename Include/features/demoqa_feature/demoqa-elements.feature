@@ -13,7 +13,7 @@ Feature: User simulating example Demo QA Elements Sub Menu
     And User input Permanent Address Field
     And User click Submit button
     Then User can view Submitted Data
-   @invalid-email 
+
    Scenario: User can't Submit Form with Invalid Email
     And User click Text Box Menu button
     And User input Username Field

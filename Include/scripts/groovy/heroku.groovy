@@ -53,52 +53,71 @@ class heroku {
 	def click(String click) {
 		switch (click) {
 			case 'Add Remove Element':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/a_AddRemove Elements'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/a_AddRemove Elements'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/a_AddRemove Elements'))
 				break;
 			case 'Add Element':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/button_Add Element'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/button_Add Element'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/button_Add Element'))
 				break;
 			case 'Delete Element':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'))
 				break;
 			case 'Checkboxes':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/a_Checkboxes'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/a_Checkboxes'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/a_Checkboxes'))
 				break;
 			case 'First Checkbox':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/input_checkbox_1'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/input_checkbox_1'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/input_checkbox_1'))
 				break;
 			case 'Second Checkbox':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/input_checkbox_2'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/input_checkbox_2'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/input_checkbox_2'))
 				break;
 			case 'Dropdown':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/dropdown_button'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/dropdown_button'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/dropdown_button'))
 				break;
 			case 'Option':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/option_dropdown'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/option_dropdown'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/option_dropdown'))
 				break;
 			case 'Dynamic Controls':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/dynamic_button'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/dynamic_button'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/dynamic_button'))
 				break;
 			case 'A Checkbox':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/a_checkbox'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/a_checkbox'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/a_checkbox'))
 				break;
 			case 'Remove Checkbox':
-				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/remove_button'), 0)
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/remove_button'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/remove_button'))
+				break;
+			case 'Add Checkbox':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/add_checkbox'), 10)
+				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/add_checkbox'))
+				break;
+			case 'Enable':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/enable_btn'), 10)
+				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/enable_btn'))
+				WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/enabled_msg'), 0)
+				break;
+			case 'Disable':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/disable_btn'), 10)
+				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/disable_btn'))
 				break;
 			default:
 				throw new Error('option does not exist')
 		}
+	}
+	
+	@When("User input field '(.*)'")
+	def inputField(String field) {
+		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/input_field'), 10)
+		WebUI.setText(findTestObject('Object Repository/Heroku/Page_The Internet/input_field'), field)
 	}
 
 	@When("User select (.*) Option")
@@ -119,12 +138,10 @@ class heroku {
 	def validate(String validate) {
 		switch (validate) {
 			case 'Add':
-				WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'), 0)
-				WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'), 0)
+				WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'), 10)
 				break;
 			case 'Delete':
-				WebUI.waitForElementNotPresent(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'), 0)
-				WebUI.verifyElementNotPresent(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'), 0)
+				WebUI.verifyElementNotPresent(findTestObject('Object Repository/Heroku/Page_The Internet/button_Delete'), 10)
 				break;
 			default:
 				throw new Error('option does not exist')
@@ -134,24 +151,32 @@ class heroku {
 
 	@Then("User success click Checkboxes")
 	def validateClickCheckboxes() {
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/input1_checked'), 0)
-		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/input1_checked'), 0)
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/input2_notchecked'), 0)
-		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/input2_notchecked'), 0)
+		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/input1_checked'), 10)
+		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/input2_notchecked'), 10)
 		WebUI.closeBrowser()
 	}
 
 	@Then("User success select Dropdown")
 	def validateSelectDropdown() {
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/options_selected'), 0)
 		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/options_selected'), 0)
 		WebUI.closeBrowser()
 	}
 
 	@Then("User success Remove A Checkbox")
 	def validateRemoveACheckbox() {
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/gone_msg'), 0)
 		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/gone_msg'), 0)
+		WebUI.closeBrowser()
+	}
+	
+	@Then("User success Add A Checkbox")
+	def validateAddCheckbox() {
+		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/back_msg'), 0)
+		WebUI.closeBrowser()
+	}
+	
+	@Then("User success Disabled Field")
+	def validateDisabledField() {
+		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/disabled_msg'), 0)
 		WebUI.closeBrowser()
 	}
 }
