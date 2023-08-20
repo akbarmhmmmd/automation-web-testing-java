@@ -46,9 +46,10 @@ import cucumber.api.java.en.When
 class demoqa {
 	String username = 'test'
 	String email = 'test@test.com'
+	String invalidEmail = 'test'
 	String currentAddress = 'jl. jl. ke pasar baru'
 	String permanentAddress = 'permanent jl. jl. ke pasar baru'
-	
+
 	@Given("User on Demo QA Page")
 	def validateDemoQAPage() {
 		WebUI.openBrowser('')
@@ -61,47 +62,65 @@ class demoqa {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/elements_button'), 10)
 		WebUI.click(findTestObject('Object Repository/Demo QA/elements_button'))
 	}
-	
+
 	@When("User click Text Box Menu button")
 	def clickTextBox() {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/textbox_button'), 10)
 		WebUI.click(findTestObject('Object Repository/Demo QA/textbox_button'))
 	}
-	
+
 	@When("User click Submit button")
 	def clickSubmit() {
 		WebUI.scrollToElement(findTestObject('Object Repository/Demo QA/submit_button'), 10)
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/submit_button'), 10)
 		WebUI.click(findTestObject('Object Repository/Demo QA/submit_button'))
 	}
-	
+
 	@When("User input Username Field")
 	def inputUsername() {
 		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/username_field'), 0)
 		WebUI.setText(findTestObject('Object Repository/Demo QA/username_field'), username)
 	}
-	
-	@When("User input Email Field")
-	def inputEmail() {
+
+	@When("User input (.*)Email Field")
+	def inputEmail(String emailFormat) {
 		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/email_field'), 0)
-		WebUI.setText(findTestObject('Object Repository/Demo QA/email_field'), email)
+		switch (emailFormat) {
+			case '':
+				WebUI.setText(findTestObject('Object Repository/Demo QA/email_field'), email)
+				break;
+			case 'Invalid ':
+				WebUI.setText(findTestObject('Object Repository/Demo QA/email_field'), invalidEmail)
+				break;
+			default:
+				throw new Error('option does not exist')
+		}
 	}
-	
+
 	@When("User input Current Address Field")
 	def inputCurrentAddress() {
 		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/currentAddress_field'), 0)
 		WebUI.setText(findTestObject('Object Repository/Demo QA/currentAddress_field'), currentAddress)
 	}
-	
+
 	@When("User input Permanent Address Field")
 	def inputPermanentAddress() {
 		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/permanentAddress_field'), 0)
 		WebUI.setText(findTestObject('Object Repository/Demo QA/permanentAddress_field'), permanentAddress)
 	}
 
-	@Then("User can view Submitted Data")
-	def validateSubmitted() {
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/output_text'), 0)
+	@Then("User can(.*) view Submitted Data")
+	def validateSubmitted(String view) {
+		switch (view) {
+			case '':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/output_text'), 0)
+				break;
+			case ' not':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/output_text'), 0)
+				break;
+			default:
+				throw new Error('option does not exist')
+		}
 		WebUI.closeBrowser()
 	}
 }
