@@ -42,7 +42,6 @@ import cucumber.api.java.en.Then
 import cucumber.api.java.en.When
 
 
-
 class demoqa {
 	String username = 'test'
 	String email = 'test@test.com'
@@ -58,39 +57,57 @@ class demoqa {
 
 	@When("User click Elements Menu button")
 	def clickElements() {
-		WebUI.scrollToElement(findTestObject('Object Repository/Demo QA/elements_button'), 10)
-		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/elements_button'), 10)
-		WebUI.click(findTestObject('Object Repository/Demo QA/elements_button'))
+		WebUI.scrollToElement(findTestObject('Object Repository/Demo QA/btn_elements'), 10)
+		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_elements'), 10)
+		WebUI.click(findTestObject('Object Repository/Demo QA/btn_elements'))
 	}
 
 	@When("User click Text Box Menu button")
 	def clickTextBox() {
-		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/textbox_button'), 10)
-		WebUI.click(findTestObject('Object Repository/Demo QA/textbox_button'))
+		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_textbox'), 5)
+		WebUI.click(findTestObject('Object Repository/Demo QA/btn_textbox'))
+	}
+	
+	@When("User click Check Box Menu button")
+	def clickCheckBox() {
+		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_checkbox'), 5)
+		WebUI.click(findTestObject('Object Repository/Demo QA/btn_checkbox'))
 	}
 
 	@When("User click Submit button")
 	def clickSubmit() {
-		WebUI.scrollToElement(findTestObject('Object Repository/Demo QA/submit_button'), 10)
-		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/submit_button'), 10)
-		WebUI.click(findTestObject('Object Repository/Demo QA/submit_button'))
+		WebUI.scrollToElement(findTestObject('Object Repository/Demo QA/btn_submit'), 10)
+		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_submit'), 10)
+		WebUI.click(findTestObject('Object Repository/Demo QA/btn_submit'))
+	}
+	
+	@When("User click + button")
+	def clickExpand() {
+		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_expand'), 5)
+		WebUI.click(findTestObject('Object Repository/Demo QA/btn_expand'))
+	}
+	
+	@When("User click - button")
+	def clickCollapse() {
+		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_collapse'), 5)
+		WebUI.click(findTestObject('Object Repository/Demo QA/btn_collapse'))
 	}
 
 	@When("User input Username Field")
 	def inputUsername() {
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/username_field'), 0)
-		WebUI.setText(findTestObject('Object Repository/Demo QA/username_field'), username)
+		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/field_username'), 5)
+		WebUI.setText(findTestObject('Object Repository/Demo QA/field_username'), username)
 	}
 
 	@When("User input (.*)Email Field")
 	def inputEmail(String emailFormat) {
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/email_field'), 0)
+		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/field_email'), 5)
 		switch (emailFormat) {
 			case '':
-				WebUI.setText(findTestObject('Object Repository/Demo QA/email_field'), email)
+				WebUI.setText(findTestObject('Object Repository/Demo QA/field_email'), email)
 				break;
 			case 'Invalid ':
-				WebUI.setText(findTestObject('Object Repository/Demo QA/email_field'), invalidEmail)
+				WebUI.setText(findTestObject('Object Repository/Demo QA/field_email'), invalidEmail)
 				break;
 			default:
 				throw new Error('option does not exist')
@@ -99,24 +116,41 @@ class demoqa {
 
 	@When("User input Current Address Field")
 	def inputCurrentAddress() {
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/currentAddress_field'), 0)
-		WebUI.setText(findTestObject('Object Repository/Demo QA/currentAddress_field'), currentAddress)
+		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/field_currentAddress'), 5)
+		WebUI.setText(findTestObject('Object Repository/Demo QA/field_currentAddress'), currentAddress)
 	}
 
 	@When("User input Permanent Address Field")
 	def inputPermanentAddress() {
-		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/permanentAddress_field'), 0)
-		WebUI.setText(findTestObject('Object Repository/Demo QA/permanentAddress_field'), permanentAddress)
+		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/field_permanentAddress'), 5)
+		WebUI.setText(findTestObject('Object Repository/Demo QA/field_permanentAddress'), permanentAddress)
+	}
+	
+	@Then("User successfully (.*) all menu")
+	def validateExpandCollapse(String view) {
+		switch (view) {
+			case 'expand':
+				WebUI.verifyElementPresent(findTestObject('Object Repository/Demo QA/label_desktop'), 3)
+				WebUI.verifyElementPresent(findTestObject('Object Repository/Demo QA/label_documents'), 3)
+				WebUI.verifyElementPresent(findTestObject('Object Repository/Demo QA/label_downloads'), 3)
+				break;
+			case 'collapse':
+				WebUI.verifyElementNotPresent(findTestObject('Object Repository/Demo QA/label_desktop'), 3)
+				break;
+			default:
+				throw new Error('option does not exist')
+		}
+		WebUI.closeBrowser()
 	}
 
 	@Then("User can(.*) view Submitted Data")
 	def validateSubmitted(String view) {
 		switch (view) {
 			case '':
-				WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/output_text'), 0)
+				WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/txt_output'), 5)
 				break;
 			case ' not':
-				WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/output_text'), 0)
+				WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/txt_output'), 5)
 				break;
 			default:
 				throw new Error('option does not exist')

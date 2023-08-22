@@ -1,7 +1,7 @@
 @akbar-testing @demoqa-elements
 Feature: User simulating example Demo QA Elements Sub Menu
 
-  Background:
+  Background: User on Elements Page
     Given User on Demo QA Page
     When User click Elements Menu button
 
@@ -22,3 +22,14 @@ Feature: User simulating example Demo QA Elements Sub Menu
     And User input Permanent Address Field
     And User click Submit button
     Then User can not view Submitted Data
+
+   Scenario: User can expand all menu Checkbox
+   	And User click Check Box Menu button
+   	And User click + button
+   	Then User successfully expand all menu
+
+   Scenario: User can collapse all menu Checkbox
+   	And User click Check Box Menu button
+   	And User click + button
+   	And User click - button
+   	Then User successfully collapse all menu

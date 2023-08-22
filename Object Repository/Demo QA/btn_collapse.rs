@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>elements_button</name>
+   <name>btn_collapse</name>
    <tag></tag>
-   <elementGuidId>6eafdd80-22e8-4ead-8a1e-6e52dd05e9a7</elementGuidId>
+   <elementGuidId>0f442379-a542-4545-b57f-f1c6bffbbeba</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@class=&quot;card-body&quot;]//*[contains(text(), &quot;Elements&quot;)]</value>
+         <value>//*[@class= &quot;check-box-tree-wrapper&quot;]/div/div/button[2]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

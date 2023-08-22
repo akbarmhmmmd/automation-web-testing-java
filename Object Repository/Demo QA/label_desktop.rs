@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>submit_button</name>
+   <name>label_desktop</name>
    <tag></tag>
-   <elementGuidId>342e5bc0-6109-4a0f-b4e6-6726cbf0f2cd</elementGuidId>
+   <elementGuidId>71f226f3-92fd-4aa5-b4f3-0265aaf99b85</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@id=&quot;submit&quot;]</value>
+         <value>//*[@id=&quot;tree-node&quot;]/ol/li/ol/li[1]/span/label</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

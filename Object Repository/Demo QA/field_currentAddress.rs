@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>permanentAddress_field</name>
+   <name>field_currentAddress</name>
    <tag></tag>
-   <elementGuidId>897e08f7-8259-4604-9521-9dd6f5db8fee</elementGuidId>
+   <elementGuidId>ea9cb332-3e45-412e-aeca-91fd1523c657</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@id=&quot;permanentAddress&quot;]</value>
+         <value>//*[@id=&quot;currentAddress&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

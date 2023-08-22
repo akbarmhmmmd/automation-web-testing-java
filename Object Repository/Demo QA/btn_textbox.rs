@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>username_field</name>
+   <name>btn_textbox</name>
    <tag></tag>
-   <elementGuidId>84acb85c-1f80-44b7-a9fe-6d647f935e89</elementGuidId>
+   <elementGuidId>fdf4890f-3872-42e5-837c-f3c73554f011</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@id=&quot;userName&quot;]</value>
+         <value>//*[contains(text(), &quot;Text Box&quot;)]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
