@@ -51,8 +51,8 @@ class demoqa {
 
 	@Given("User on Demo QA Page")
 	def validateDemoQAPage() {
-		WebUI.openBrowser('')
-		WebUI.navigateToUrl('https://demoqa.com')
+		WebUI.openBrowser('https://demoqa.com')
+		WebUI.maximizeWindow()
 	}
 
 	@When("User click Elements Menu button")
@@ -67,7 +67,7 @@ class demoqa {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_textbox'), 5)
 		WebUI.click(findTestObject('Object Repository/Demo QA/btn_textbox'))
 	}
-	
+
 	@When("User click Check Box Menu button")
 	def clickCheckBox() {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_checkbox'), 5)
@@ -80,13 +80,13 @@ class demoqa {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_submit'), 10)
 		WebUI.click(findTestObject('Object Repository/Demo QA/btn_submit'))
 	}
-	
+
 	@When("User click + button")
 	def clickExpand() {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_expand'), 5)
 		WebUI.click(findTestObject('Object Repository/Demo QA/btn_expand'))
 	}
-	
+
 	@When("User click - button")
 	def clickCollapse() {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_collapse'), 5)
@@ -125,7 +125,7 @@ class demoqa {
 		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/field_permanentAddress'), 5)
 		WebUI.setText(findTestObject('Object Repository/Demo QA/field_permanentAddress'), permanentAddress)
 	}
-	
+
 	@Then("User successfully (.*) all menu")
 	def validateExpandCollapse(String view) {
 		switch (view) {

@@ -22,7 +22,7 @@ Feature: User simulating example Demo QA Elements Sub Menu
     And User input Permanent Address Field
     And User click Submit button
     Then User can not view Submitted Data
-
+   @expand-all
    Scenario: User can expand all menu Checkbox
    	And User click Check Box Menu button
    	And User click + button

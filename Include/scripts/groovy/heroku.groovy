@@ -45,8 +45,8 @@ import cucumber.api.java.en.When
 class heroku {
 	@Given("User on Heroku Web")
 	def validateHerokuWebPage() {
-		WebUI.openBrowser('')
-		WebUI.navigateToUrl('https://the-internet.herokuapp.com/')
+		WebUI.openBrowser('https://the-internet.herokuapp.com/')
+		WebUI.maximizeWindow()
 	}
 
 	@When("User click (.*) Button")
@@ -113,7 +113,7 @@ class heroku {
 				throw new Error('option does not exist')
 		}
 	}
-	
+
 	@When("User input field '(.*)'")
 	def inputField(String field) {
 		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/input_field'), 10)
@@ -167,13 +167,13 @@ class heroku {
 		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/gone_msg'), 0)
 		WebUI.closeBrowser()
 	}
-	
+
 	@Then("User success Add A Checkbox")
 	def validateAddCheckbox() {
 		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/back_msg'), 0)
 		WebUI.closeBrowser()
 	}
-	
+
 	@Then("User success Disabled Field")
 	def validateDisabledField() {
 		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/disabled_msg'), 0)
