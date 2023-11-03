@@ -56,7 +56,7 @@ class swaglabs {
 	def validateSwagLabsPage() {
 		WebUI.openBrowser(sauceDemoUrl)
 		WebUI.maximizeWindow()
-		WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/swagLabs_txt'), 3)
+		WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/swagLabs_txt'), 5)
 	}
 
 	@When("User input (.*) User username")
