@@ -1,10 +1,10 @@
 {
-  "keywordFileContentHash": "2AF2D7EC8B17C6FCF2472D3C404452BC",
+  "keywordFileContentHash": "F1108217F2CD07A4A1BEF7A2FE7FFF79",
   "keywordClasses": [
     {
       "name": "swaglabs",
       "keywordMethods": []
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }

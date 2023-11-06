@@ -103,7 +103,7 @@ class swaglabs {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/login_btn'), 3)
 		WebUI.click(findTestObject('Object Repository/SwagLabs/login_btn'))
 	}
-	
+
 	@When("User click (.*) Add to Cart")
 	def clickAddCart(String add) {
 		switch(add) {
@@ -118,28 +118,48 @@ class swaglabs {
 			case 'Bolt T-Shirt':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addBoltTShirt_btn'), 3)
 				WebUI.click(findTestObject('Object Repository/SwagLabs/addBoltTShirt_btn'))
-			break;
+				break;
 			case 'Fleece Jacket':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addFleeceJacket_btn'), 3)
 				WebUI.click(findTestObject('Object Repository/SwagLabs/addFleeceJacket_btn'))
-			break;
+				break;
 			case 'Onesie':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addOnesie_btn'), 3)
 				WebUI.click(findTestObject('Object Repository/SwagLabs/addOnesie_btn'))
-			break;
+				break;
 			case 'Red T-Shirt':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addRedTShirt_btn'), 3)
 				WebUI.click(findTestObject('Object Repository/SwagLabs/addRedTShirt_btn'))
-			break;
+				break;
 			default:
 				throw new Error('item does not exist')
 		}
 	}
-	
+
 	@When("User click cart icon")
 	def clickCart() {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/cartIcon'), 3)
 		WebUI.click(findTestObject('Object Repository/SwagLabs/cartIcon'))
+	}
+	
+	@When("User select (.*) sort icon")
+	def selectSort(String sort) {
+		switch(sort) {
+			case 'A to Z':
+				WebUI.click(findTestObject('Object Repository/SwagLabs/AtoZ'))
+				break;
+			case 'Z to A':
+				WebUI.click(findTestObject('Object Repository/SwagLabs/ZtoA'))
+				break;
+			case 'Price low to high':
+				WebUI.click(findTestObject('Object Repository/SwagLabs/LowtoHigh'))
+			break;
+			case 'Price high to low':
+				WebUI.click(findTestObject('Object Repository/SwagLabs/HightoLow'))
+			break;
+			default:
+				throw new Error('option does not exist')
+		}
 	}
 
 	@Then("User successfully redirected to (.*) Home page")
@@ -171,8 +191,8 @@ class swaglabs {
 		}
 		WebUI.closeBrowser()
 	}
-	
-	@When("User successfully add (.*) to the cart")
+
+	@Then("User successfully add (.*) to the cart")
 	def validateItem(String cart) {
 		switch(cart) {
 			case 'Backpack':
@@ -183,18 +203,39 @@ class swaglabs {
 				break;
 			case 'Bolt T-Shirt':
 				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/boltShirt_txt'), 3)
-			break;
+				break;
 			case 'Fleece Jacket':
 				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/fleece_txt'), 3)
-			break;
+				break;
 			case 'Onesie':
 				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/onesie_txt'), 3)
-			break;
+				break;
 			case 'Red T-Shirt':
 				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/redShirt_txt'), 3)
-			break;
+				break;
 			default:
 				throw new Error('item does not exist')
+		}
+		WebUI.closeBrowser()
+	}
+	
+	@Then("User success sort products by (.*)")
+	def validateSorted(String sort) {
+		switch(sort) {
+			case 'A to Z':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/itemBackpack_txt'), 3)
+				break;
+			case 'Z to A':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/itemRedShirt_txt'), 3)
+				break;
+			case 'Price low to high':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/itemOnesie_txt'), 3)
+			break;
+			case 'Price high to low':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/itemFleece_txt'), 3)
+			break;
+			default:
+				throw new Error('option does not exist')
 		}
 		WebUI.closeBrowser()
 	}
