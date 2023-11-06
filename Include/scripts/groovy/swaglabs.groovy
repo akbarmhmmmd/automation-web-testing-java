@@ -51,7 +51,7 @@ class swaglabs {
 	String wrongUser = 'user'
 	String wrongPass = 'pass'
 	String password = 'secret_sauce'
-	
+
 	@Given("User on Swag Labs page")
 	def validateSwagLabsPage() {
 		WebUI.openBrowser(sauceDemoUrl)
@@ -65,43 +65,81 @@ class swaglabs {
 			case 'Standard':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/userField'), 3)
 				WebUI.setText(findTestObject('Object Repository/SwagLabs/userField'), standardUser)
-			break;
+				break;
 			case 'Locked Out':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/userField'), 3)
 				WebUI.setText(findTestObject('Object Repository/SwagLabs/userField'), lockedOutUser)
-			break;
+				break;
 			case 'Problem':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/userField'), 3)
 				WebUI.setText(findTestObject('Object Repository/SwagLabs/userField'), problemUser)
-			break;
+				break;
 			case 'Wrong':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/userField'), 3)
 				WebUI.setText(findTestObject('Object Repository/SwagLabs/userField'), wrongUser)
-			break;
+				break;
 			default:
 				throw new Error('option does not exist')
 		}
 	}
-	
+
 	@When("User input (.*) password")
 	def inputPass(String pass) {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/passField'), 3)
 		switch(pass) {
 			case 'correct':
 				WebUI.setText(findTestObject('Object Repository/SwagLabs/passField'), password)
-			break;
+				break;
 			case 'incorrect':
 				WebUI.setText(findTestObject('Object Repository/SwagLabs/passField'), wrongPass)
-			break;
+				break;
 			default:
 				throw new Error('option does not exist')
 		}
 	}
-	
+
 	@When("User click Login button")
 	def clickLogin() {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/login_btn'), 3)
 		WebUI.click(findTestObject('Object Repository/SwagLabs/login_btn'))
+	}
+	
+	@When("User click (.*) Add to Cart")
+	def clickAddCart(String add) {
+		switch(add) {
+			case 'Backpack':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addBackpack_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/addBackpack_btn'))
+				break;
+			case 'Bike Light':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addBikeLight_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/addBikeLight_btn'))
+				break;
+			case 'Bolt T-Shirt':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addBoltTShirt_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/addBoltTShirt_btn'))
+			break;
+			case 'Fleece Jacket':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addFleeceJacket_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/addFleeceJacket_btn'))
+			break;
+			case 'Onesie':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addOnesie_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/addOnesie_btn'))
+			break;
+			case 'Red T-Shirt':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/addRedTShirt_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/addRedTShirt_btn'))
+			break;
+			default:
+				throw new Error('item does not exist')
+		}
+	}
+	
+	@When("User click cart icon")
+	def clickCart() {
+		WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/cartIcon'), 3)
+		WebUI.click(findTestObject('Object Repository/SwagLabs/cartIcon'))
 	}
 
 	@Then("User successfully redirected to (.*) Home page")
@@ -109,27 +147,54 @@ class swaglabs {
 		switch(page) {
 			case 'Standard':
 				WebUI.waitForElementVisible(findTestObject('Object Repository/SwagLabs/products_txt'), 5)
-			break;
+				break;
 			case 'Problem':
 				WebUI.waitForElementVisible(findTestObject('Object Repository/SwagLabs/problem_img'), 5)
-			break;
+				break;
 			default:
 				throw new Error('page does not exist')
 		}
 		WebUI.closeBrowser()
 	}
-	
+
 	@Then("User can see (.*) error message")
 	def validateErrorLocked(String error) {
 		switch(error) {
 			case 'locked out':
 				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/lockedOut_txt'), 3)
-			break;
+				break;
 			case 'credential':
 				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/credentialError_txt'), 3)
-			break;
+				break;
 			default:
 				throw new Error('message does not exist')
+		}
+		WebUI.closeBrowser()
+	}
+	
+	@When("User successfully add (.*) to the cart")
+	def validateItem(String cart) {
+		switch(cart) {
+			case 'Backpack':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/backpack_txt'), 3)
+				break;
+			case 'Bike Light':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/bikeLight_txt'), 3)
+				break;
+			case 'Bolt T-Shirt':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/boltShirt_txt'), 3)
+			break;
+			case 'Fleece Jacket':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/fleece_txt'), 3)
+			break;
+			case 'Onesie':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/onesie_txt'), 3)
+			break;
+			case 'Red T-Shirt':
+				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/redShirt_txt'), 3)
+			break;
+			default:
+				throw new Error('item does not exist')
 		}
 		WebUI.closeBrowser()
 	}

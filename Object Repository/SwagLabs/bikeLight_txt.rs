@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>txt_home</name>
+   <name>bikeLight_txt</name>
    <tag></tag>
-   <elementGuidId>d2f96c2d-a56c-4681-bf2f-08d5ee0bfb97</elementGuidId>
+   <elementGuidId>a7ba9009-9a7a-4f27-9eb9-5d256062dedd</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@aria-label=&quot;Airbnb homepage&quot;]</value>
+         <value>//*[contains(text(), &quot;Bike Light&quot;)]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

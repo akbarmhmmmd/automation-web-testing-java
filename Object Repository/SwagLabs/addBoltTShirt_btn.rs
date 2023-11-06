@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>txt_home</name>
+   <name>addBoltTShirt_btn</name>
    <tag></tag>
-   <elementGuidId>d2f96c2d-a56c-4681-bf2f-08d5ee0bfb97</elementGuidId>
+   <elementGuidId>72e4d984-875f-4369-abb1-df980caf83e8</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//*[@aria-label=&quot;Airbnb homepage&quot;]</value>
+         <value>//*[@id=&quot;add-to-cart-sauce-labs-bolt-t-shirt&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

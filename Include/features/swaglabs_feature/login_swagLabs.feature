@@ -1,5 +1,5 @@
-@akbar-testing @swag-labs
-Feature: User simulating usage of Swag Labs
+@akbar-testing @swag-login
+Feature: Swag Labs Login
 
 	Background:
 		Given User on Swag Labs page

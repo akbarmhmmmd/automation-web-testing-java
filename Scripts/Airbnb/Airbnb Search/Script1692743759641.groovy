@@ -21,6 +21,8 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://www.airbnb.com/')
 
+WebUI.maximizeWindow()
+
 WebUI.waitForElementPresent(findTestObject('Airbnb/txt_home'), 3)
 
 WebUI.click(findTestObject('Airbnb/btn_addGuests'))
