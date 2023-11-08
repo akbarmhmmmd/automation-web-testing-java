@@ -98,10 +98,24 @@ class swaglabs {
 		}
 	}
 
-	@When("User click Login button")
-	def clickLogin() {
-		WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/login_btn'), 3)
-		WebUI.click(findTestObject('Object Repository/SwagLabs/login_btn'))
+	@When("User click (.*) button")
+	def clickLogin(String btn) {
+		switch(btn ) {
+			case 'Login':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/login_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/login_btn'))
+			break;
+			case 'Logout':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/logout_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/logout_btn'))
+			break;
+			case 'Burger':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/burger_btn'), 3)
+				WebUI.click(findTestObject('Object Repository/SwagLabs/burger_btn'))
+			break;
+			default:
+				throw new Error('option does not exist')
+		}
 	}
 
 	@When("User click (.*) Add to Cart")
@@ -141,7 +155,7 @@ class swaglabs {
 		WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/cartIcon'), 3)
 		WebUI.click(findTestObject('Object Repository/SwagLabs/cartIcon'))
 	}
-	
+
 	@When("User select (.*) sort icon")
 	def selectSort(String sort) {
 		switch(sort) {
@@ -153,10 +167,10 @@ class swaglabs {
 				break;
 			case 'Price low to high':
 				WebUI.click(findTestObject('Object Repository/SwagLabs/LowtoHigh'))
-			break;
+				break;
 			case 'Price high to low':
 				WebUI.click(findTestObject('Object Repository/SwagLabs/HightoLow'))
-			break;
+				break;
 			default:
 				throw new Error('option does not exist')
 		}
@@ -218,7 +232,7 @@ class swaglabs {
 		}
 		WebUI.closeBrowser()
 	}
-	
+
 	@Then("User success sort products by (.*)")
 	def validateSorted(String sort) {
 		switch(sort) {
@@ -230,13 +244,19 @@ class swaglabs {
 				break;
 			case 'Price low to high':
 				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/itemOnesie_txt'), 3)
-			break;
+				break;
 			case 'Price high to low':
 				WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/itemFleece_txt'), 3)
-			break;
+				break;
 			default:
 				throw new Error('option does not exist')
 		}
+		WebUI.closeBrowser()
+	}
+	
+	@Then("User successfully Logout")
+	def validateLogout() {
+		WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/login_btn'), 3)
 		WebUI.closeBrowser()
 	}
 }

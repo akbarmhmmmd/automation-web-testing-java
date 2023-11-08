@@ -7,6 +7,11 @@ Feature: Cart Product Swag Labs
   	And User input correct password
   	And User click Login button
 
+  Scenario: User can logout
+  	And User click Burger button
+  	And User click Logout button
+  	Then User successfully Logout
+
   Scenario Outline: User can add products to the cart
     And User click <item> Add to Cart
     And User click cart icon
@@ -20,7 +25,7 @@ Feature: Cart Product Swag Labs
       | Fleece Jacket |
       | Onesie 				|
       | Red T-Shirt 	|
-	@swag-sort
+
   Scenario Outline: User can sort products
     And User select <sort> sort icon
     Then User success sort products by <sort>
