@@ -1,10 +1,10 @@
 {
-  "keywordFileContentHash": "307FC9F9FA7592B4D1FA1F2942E820A7",
+  "keywordFileContentHash": "474291BA88BD79A41AF5F238E625C09C",
   "keywordClasses": [
     {
       "name": "heroku",
       "keywordMethods": []
     }
   ],
-  "javadocParsed": true
+  "javadocParsed": false
 }

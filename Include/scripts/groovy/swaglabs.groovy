@@ -104,15 +104,15 @@ class swaglabs {
 			case 'Login':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/login_btn'), 3)
 				WebUI.click(findTestObject('Object Repository/SwagLabs/login_btn'))
-			break;
+				break;
 			case 'Logout':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/logout_btn'), 3)
 				WebUI.click(findTestObject('Object Repository/SwagLabs/logout_btn'))
-			break;
+				break;
 			case 'Burger':
 				WebUI.waitForElementClickable(findTestObject('Object Repository/SwagLabs/burger_btn'), 3)
 				WebUI.click(findTestObject('Object Repository/SwagLabs/burger_btn'))
-			break;
+				break;
 			default:
 				throw new Error('option does not exist')
 		}
@@ -253,7 +253,7 @@ class swaglabs {
 		}
 		WebUI.closeBrowser()
 	}
-	
+
 	@Then("User successfully Logout")
 	def validateLogout() {
 		WebUI.waitForElementPresent(findTestObject('Object Repository/SwagLabs/login_btn'), 3)

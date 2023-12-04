@@ -5,5 +5,5 @@ Feature: User Login
 		Given User on Login Page
 		When User enter username akbarmhmmmd@gmail.com
 		And User enter password 5xx1bkCcAlw=
-		And User click submit button
+		And User is click submit Button
 		Then User successfully Login

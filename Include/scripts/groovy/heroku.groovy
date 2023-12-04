@@ -43,6 +43,10 @@ import cucumber.api.java.en.When
 
 
 class heroku {
+	
+	String username = 'tomsmith'
+	String  password = 'SuperSecretPassword!'
+	
 	@Given("User on Heroku Web")
 	def validateHerokuWebPage() {
 		WebUI.openBrowser('https://the-internet.herokuapp.com/')
@@ -109,9 +113,26 @@ class heroku {
 				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/disable_btn'), 10)
 				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/disable_btn'))
 				break;
+			case 'Form Authentication':
+				WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/formAuthentication_btn'), 10)
+				WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/formAuthentication_btn'))
+				WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/loginForm_txt'), 10)
+				break;
 			default:
 				throw new Error('option does not exist')
 		}
+	}
+	
+	@When("User is input username and password Form Authentication")
+	def inputUsernamePassForm() {
+		WebUI.setText(findTestObject('Object Repository/Heroku/Page_The Internet/unameForm_field'), username)
+		WebUI.setText(findTestObject('Object Repository/Heroku/Page_The Internet/pass_field'), password)
+	}
+	
+	@When("User is click Login button")
+	def clickLoginForm() {
+		WebUI.waitForElementClickable(findTestObject('Object Repository/Heroku/Page_The Internet/loginForm_btn'), 10)
+		WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/loginForm_btn'))
 	}
 
 	@When("User input field '(.*)'")
@@ -179,4 +200,14 @@ class heroku {
 		WebUI.verifyElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/disabled_msg'), 0)
 		WebUI.closeBrowser()
 	}
+	
+	@Then("User success Logged in")
+	def inputField() {
+		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/logged_text'), 10)
+		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/secureArea_txt'), 10)
+		WebUI.click(findTestObject('Object Repository/Heroku/Page_The Internet/logoutForm_btn'))
+		WebUI.waitForElementPresent(findTestObject('Object Repository/Heroku/Page_The Internet/loginForm_txt'), 10)
+		WebUI.closeBrowser()
+	}
+	
 }

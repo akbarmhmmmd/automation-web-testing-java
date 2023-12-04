@@ -47,3 +47,9 @@ Feature: User simulating example in Heroku Web
     And User input field 'Test'
     And User click Disable Button
     Then User success Disabled Field
+
+  Scenario: User can submit Form Authentication
+  	When User click Form Authentication Button
+  	And User is input username and password Form Authentication
+  	And User is click Login button
+  	Then User success Logged in

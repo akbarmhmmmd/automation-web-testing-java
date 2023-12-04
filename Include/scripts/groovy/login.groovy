@@ -72,7 +72,7 @@ class login {
 		WebUI.setEncryptedText(findTestObject(passwordField), password)
 	}
 
-	@When("User click submit button")
+	@When("User is click submit Button")
 	def userClickSubmit() {
 		println ("\nUser click submit button")
 		WebUI.click(findTestObject(submitButton))
