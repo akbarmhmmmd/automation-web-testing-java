@@ -33,18 +33,18 @@ public class demoweb {
 
 		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo Web Shop/Page_Demo Web Shop/a_akbarmhmmmdgmail.com'), 5)
 	}
-	
+
 	@Keyword
 	def static void loginWithGlobalVariable() {
 		login(GlobalVariable.webURL, GlobalVariable.email, GlobalVariable.password)
 	}
-	
+
 	@Keyword
 	def static void search() {
 		WebUI.sendKeys(findTestObject('Object Repository/Demo QA/field_searchStore'), GlobalVariable.productName)
 		WebUI.waitForElementClickable(findTestObject('Object Repository/Demo QA/btn_searchStore'), 2)
 		WebUI.click(findTestObject('Object Repository/Demo QA/btn_searchStore'))
-		
+
 		WebUI.waitForElementPresent(findTestObject('Object Repository/Demo QA/txt_searchResults'), 2)
 	}
 }

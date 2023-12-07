@@ -6,12 +6,11 @@
    <elementGuidId>f1ada01e-d04e-4c87-8def-fdcf57aa3d29</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-         <value></value>
+         <key>XPATH</key>
+         <value>//*[contains(text(), &quot;places in Malang&quot;)]</value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//*[@class=&quot;tyi4kqb dir dir-ltr&quot;]</value>
+         <key>BASIC</key>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
